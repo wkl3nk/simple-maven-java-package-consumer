@@ -9,11 +9,22 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.wkl3nk</groupId>
-	<artifactId>simple-maven-java</artifactId>
+	<artifactId>simple-maven-java-package-consumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>simple-maven-java-package-consumer</name>
 	<description>Demo project that has a dependency to a package stored on the github.com maven package repository</description>
+
+	<repositories>
+		<repository>
+			<id>wkl3nk-github-packages</id>
+			<name>wkl3nk Packages on github.com</name>
+			<url>https://maven.pkg.github.com/wkl3nk/simple-maven-java</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 	<properties>
 		<java.version>17</java.version>
@@ -28,6 +39,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<!-- Dependency can only be found on a special demo package repository on github.com -->
+		<dependency>
+			<groupId>com.wkl3nk</groupId>
+			<artifactId>simple-maven-java</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
